@@ -11,11 +11,11 @@ namespace RESTAPITutorial.ValidationAttributes
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var course = (CourseForCreationDto)validationContext.ObjectInstance;
+            var course = (CourseForManipulationDto)validationContext.ObjectInstance;
 
             if (course.Title.Equals(course.Description))
             {
-                return new ValidationResult(ErrorMessage, new[] { nameof(CourseForCreationDto) });
+                return new ValidationResult(ErrorMessage, new[] { nameof(CourseForManipulationDto) });
             }
 
             return ValidationResult.Success;
